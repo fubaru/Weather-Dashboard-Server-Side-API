@@ -101,15 +101,30 @@ function displayWeather(event) {
                     // populating content for day 3 forecast
                     var forecastThree = moment.unix(fiveDayData.daily[3].dt).format("MM/DD/YY")
                     var forecastThreeIcon = document.createElement("img")
-                    forecastThreeIcon.setAttribute("src", `http://openweathermap.org/img/wn/${fiveDayData.daily[2].weather[0].icon}@2x.png`)
+                    forecastThreeIcon.setAttribute("src", `http://openweathermap.org/img/wn/${fiveDayData.daily[3].weather[0].icon}@2x.png`)
                     cityCard3El.innerHTML=forecastThree
                     cityCard3El.appendChild(forecastThreeIcon)
                     tempCard2EL.textContent=fiveDayData.daily[3].temp.day + " " + "°F"
                     windCard2EL.textContent=fiveDayData.daily[3].wind_speed + " " + "MPH"
                     humidityCard2El.textContent=fiveDayData.daily[3].humidity + " " + "%"
-
-
-                    
+                    // populating content for day 4 forecast
+                    var forecastFour = moment.unix(fiveDayData.daily[4].dt).format("MM/DD/YY")
+                    var forecastFourIcon = document.createElement("img")
+                    forecastFourIcon.setAttribute("src", `http://openweathermap.org/img/wn/${fiveDayData.daily[4].weather[0].icon}@2x.png`)
+                    cityCard4El.innerHTML=forecastFour
+                    cityCard4El.appendChild(forecastFourIcon)
+                    tempCard3EL.textContent=fiveDayData.daily[4].temp.day + " " + "°F"
+                    windCard3EL.textContent=fiveDayData.daily[4].wind_speed + " " + "MPH"
+                    humidityCard3El.textContent=fiveDayData.daily[4].humidity + " " + "%"
+                    // populating content for day 5 forecast
+                    var forecastFive = moment.unix(fiveDayData.daily[5].dt).format("MM/DD/YY")
+                    var forecastFiveIcon = document.createElement("img")
+                    forecastFiveIcon.setAttribute("src", `http://openweathermap.org/img/wn/${fiveDayData.daily[5].weather[0].icon}@2x.png`)
+                    cityCard5El.innerHTML=forecastFive
+                    cityCard5El.appendChild(forecastFiveIcon)
+                    tempCard4EL.textContent=fiveDayData.daily[5].temp.day + " " + "°F"
+                    windCard4EL.textContent=fiveDayData.daily[5].wind_speed + " " + "MPH"
+                    humidityCard4El.textContent=fiveDayData.daily[5].humidity + " " + "%"
                 })
         })
 
