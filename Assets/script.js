@@ -42,6 +42,14 @@ function displayWeather(event) {
                 })
                 .then(function(fiveDayData){
                     console.log(fiveDayData)
+                    var currentDate = moment.unix(currentData.dt).format("MM/DD/YYYY")
+                    var iconImage = document.createElement("img")
+                    iconImage.setAttribute("src", `http://openweathermap.org/img/wn/${currentData.weather[0].icon}@2x.png`)
+                    citySearchedEl.innerHTML=currentData.name + " " + currentDate
+                    citySearchedEl.appendChild(iconImage)
+                    tempEL.textContent=currentData.main.temp + " " + "F"
+
+
                 })
         })
 
