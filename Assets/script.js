@@ -21,13 +21,27 @@ var humidityEl = document.querySelector("#humidity")
 var uviEl = document.querySelector("#uvi")
 
 var cityCard1El = document.querySelector("#citySearched-1")
+var api = "483b2d6e329a288bff58b487cf57c0cd"
+
+function displayWeather (event) {
+    event.preventDefault()
+    var cityName = cityEl.value
+    var urlCurrent = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${api}&units=imperial`
+
+    fetch(urlCurrent)
+    .then(function(response){
+        return response.json()
+    })
+    .then(function(currentData){
+        console.log(currentData)
+    })
+
+}
 
 
 
 
 
-
-
-
-// add eventlistener
+// add eventlistener on Submit and create displayDashboard function - shows current weather for the last five days
+cityFormEl.addEventListener("submit",displayWeather)
 
