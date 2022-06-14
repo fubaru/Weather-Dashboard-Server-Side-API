@@ -14,6 +14,13 @@ THEN I am again presented with current and future conditions for that city */
 var cityEl  = document.querySelector("#city");
 var cityFormEl = document.querySelector("#cityForm")
 
+var citySearchedEl = document.querySelector("#citySearched")
+var tempEL = document.querySelector("#temp")
+var windEl = document.querySelector("#wind")
+var humidityEl = document.querySelector("#humidity")
+var uviEl = document.querySelector("#uvi")
+
+var cityCard1El = document.querySelector("#citySearched-1")
 
 
 
@@ -22,4 +29,5 @@ var cityFormEl = document.querySelector("#cityForm")
 
 
 
+// add eventlistener
 
