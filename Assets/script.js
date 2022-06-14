@@ -11,7 +11,7 @@ WHEN I click on a city in the search history
 THEN I am again presented with current and future conditions for that city */
 
 // define all your html static selectors
-var cityEl  = document.querySelector("#city");
+var cityEl = document.querySelector("#city");
 var cityFormEl = document.querySelector("#cityForm")
 
 var citySearchedEl = document.querySelector("#citySearched")
@@ -23,18 +23,27 @@ var uviEl = document.querySelector("#uvi")
 var cityCard1El = document.querySelector("#citySearched-1")
 var api = "483b2d6e329a288bff58b487cf57c0cd"
 
-function displayWeather (event) {
+function displayWeather(event) {
     event.preventDefault()
     var cityName = cityEl.value
     var urlCurrent = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${api}&units=imperial`
 
     fetch(urlCurrent)
-    .then(function(response){
-        return response.json()
-    })
-    .then(function(currentData){
-        console.log(currentData)
-    })
+        .then(function (response) {
+            return response.json()
+        })
+        .then(function (currentData) {
+            console.log(currentData)
+            var fiveDayUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${currentData.coord.lat}&lon=${currentData.coord.lon}&appid=${api}`
+
+            fetch(fiveDayUrl)
+                .then(function(response){
+                    return response.json()
+                })
+                .then(function(fiveDayData){
+                    console.log(fiveDayData)
+                })
+        })
 
 }
 
@@ -43,5 +52,5 @@ function displayWeather (event) {
 
 
 // add eventlistener on Submit and create displayDashboard function - shows current weather for the last five days
-cityFormEl.addEventListener("submit",displayWeather)
+cityFormEl.addEventListener("submit", displayWeather)
 
