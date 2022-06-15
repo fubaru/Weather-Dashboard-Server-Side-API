@@ -11,8 +11,11 @@ WHEN I click on a city in the search history
 THEN I am again presented with current and future conditions for that city */
 
 // define all your html static selectors
+var cities = [];
 var cityEl = document.querySelector("#city");
 var cityFormEl = document.querySelector("#cityForm")
+var pastSearchButtonEl = document.querySelector("#past-search-buttons");
+// var pastSearchButtonE1 = document.querySelector("#past-search-buttons")
 // current weather dashboard selectors
 var citySearchedEl = document.querySelector("#citySearched")
 var tempEL = document.querySelector("#temp")
@@ -54,6 +57,7 @@ function displayWeather(event) {
 
     // static selectors for Current weather dashboard
     var cityName = cityEl.value
+    cities.unshift({cityName});
     var urlCurrent = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${api}&units=imperial`
     // fetch function for current weather dashboard
     fetch(urlCurrent)
@@ -127,13 +131,36 @@ function displayWeather(event) {
                     humidityCard4El.textContent=fiveDayData.daily[5].humidity + " " + "%"
                 })
         })
-
+    
+    saveSearch();
+    // pastSearch(cityName);
 }
 
+var saveSearch = function () {
+    localStorage.setItem("cities", JSON.stringify(cities))
+}
 
+// var pastSearch = function(pastSearch) {
 
+//     pastSearchEl = document.createElement("button");
+//     pastSearchEl.textContent = pastSearch;
+//     pastSearch.classList = "d-flex w-100 btn-light border p-2";
+//     pastSearchEl.setAttribute("data-city",pastSearch);
+//     pastSearchEl.setAttribute("type", "submit");
+
+//     pastSearchButtonEl.prepend(pastSearchEl);
+// }
+
+// var pastSearchHandler = function(event){
+//     event.preventDefault()
+//     var cityName = event.target.getAttribute("data-city")
+//     if(cityName){
+//         displayWeather(cityName);
+//     }
+// }
 
 
 // add eventlistener on Submit and create displayDashboard function - shows current weather for the last five days
 cityFormEl.addEventListener("submit", displayWeather)
 
+// pastSearchButtonEl.addEventListener("submit", pastSearchHandler);
