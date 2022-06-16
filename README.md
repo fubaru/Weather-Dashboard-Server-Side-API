@@ -9,7 +9,7 @@ The weather dashboard is created using HTML, Bootstrap, Javasctipt, Moment cdn, 
 This project has been deployed to GitHub Pages. To get this project up and running, you can follow the deployment link. Or, download the sources files to use this as a template.
 
 * [GitHub Repository](https://github.com/fubaru/Weather-Dashboard-Server-Side-API)
-* [Deployed GitHub IO]()
+* [Deployed GitHub IO](https://fubaru.github.io/Weather-Dashboard-Server-Side-API/)
 
 ## Table of Contents (Optional)
 
@@ -24,7 +24,7 @@ For installtion of this application, you would require a text editor. Visual Stu
 
 ## Usage
 
-![Alt text]()
+![Alt text](./Assets/Weather%20Dashboard%20Demo.gif)
 
 ## Credits
 
@@ -38,14 +38,13 @@ Credit to Instructor Phil Loy helping out in class for going over the homework a
 
 ## Badges
 
-![badmath](https://img.shields.io/badge/HTML-52.5%25-orange)
-![badmath](https://img.shields.io/badge/CSS-17.3%25-purple)
-![badmath](https://img.shields.io/badge/JavaScript-30.2-yellow)
+![badmath](https://img.shields.io/badge/HTML-31.3%25-orange)
+![badmath](https://img.shields.io/badge/JavaScript-68.7%-yellow)
 
 
 ## Features
 
-* Each TimeBlocks are color-coded, and any past time would be grey; currrent time highlighted in Red; future time highlighted in green. 
-* TimeBlocks are color-coded based on system current time.
-* Textarea inputs can be stored in local storage with a save button. 
-* Stored data will remain on page after refresh. 
+* Weather cards dynamically populated temp, wind, humidity, and UV index.
+* Forecasts are displayed 5 days out from current date. 
+* Textarea inputs can be stored in local storage and be called back onto the page.
+* stored data can be recalled again with the past inputs. 
